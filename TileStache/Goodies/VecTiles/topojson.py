@@ -206,6 +206,9 @@ def merge(file, names, config, coord):
     
     for (name, input) in zip(names, inputs):
         for (index, object) in enumerate(input['objects'].values()):
+            if not object['geometries']:
+                continue
+
             if len(input['objects']) > 1:
                 output['objects']['%(name)s-%(index)d' % locals()] = object
             else:

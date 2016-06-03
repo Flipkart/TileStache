@@ -114,6 +114,9 @@ def merge(file, names, config, coord):
     '''
     inputs = get_tiles(names, config, coord)
     output = dict(zip(names, inputs))
+    for name in output.keys():
+        if not output[name]['features']:
+            output.pop(name, None)
 
     encoder = json.JSONEncoder(separators=(',', ':'))
     encoded = encoder.iterencode(output)
