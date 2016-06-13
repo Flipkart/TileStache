@@ -167,8 +167,8 @@ class Provider:
         except IndexError:
             query = self.queries[-1]
 
-        ll = self.layer.projection.coordinateProj(coord.down())
-        ur = self.layer.projection.coordinateProj(coord.right())
+        ll = self.layer.projection.coordinateProj(coord.down(1.05).left(0.05))
+        ur = self.layer.projection.coordinateProj(coord.right(1.05).up(0.05))
         bounds = ll.x, ll.y, ur.x, ur.y
         
         if not query:
