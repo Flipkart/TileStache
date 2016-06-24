@@ -1,0 +1,8 @@
+SELECT
+        cat,
+        ST_Transform(geom, 900913) AS __geometry__
+
+FROM builtup_region
+
+WHERE
+        cat IN ('IND', 'TRN', 'EDU', 'EMR')
